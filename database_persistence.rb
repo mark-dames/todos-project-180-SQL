@@ -15,7 +15,7 @@ class DatabasePersistence
   end
 
   def query(statement, *params)
-    @logger.info "#{statement}: #{params}"
+    #@logger.info "#{statement}: #{params}"
     @db.exec_params(statement, params)
   end
 
@@ -49,7 +49,6 @@ class DatabasePersistence
   def delete_list(id)
     sql = "DELETE FROM lists WHERE id = $1"
     query(sql, id)
-    #@session[:lists].reject! { |list| list[:id] == id }
   end
 
   def update_list_name(id, new_name)
