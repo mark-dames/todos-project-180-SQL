@@ -1,13 +1,13 @@
 require "pg"
 
 class DatabasePersistence
-  def initialize(logger)
+  def initialize#(logger)
     @db = if Sinatra::Base.production?
             PG.connect('DATABASE_URL')
           else
             PG.connect(dbname: "todos")
           end
-    @logger = logger
+    #@logger = logger
   end
 
   def disconnect
